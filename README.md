@@ -25,6 +25,7 @@ This project is a multimodal travel assistant chatbot built with Streamlit, Lang
    ```bash
    git clone https://github.com/ShriNarayanPandey01/travel-assistant-chatbot.git
    cd travel-assistant-chatbot
+   pip install requirements.txt
    ```
    
 2. **Run Backend on different instance :
