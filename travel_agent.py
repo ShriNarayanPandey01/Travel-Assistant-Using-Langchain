@@ -15,7 +15,8 @@ from langchain_core.prompts import ChatPromptTemplate
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from temporary_data import FLIGHT_DATA , HOTEL_DATA
 from dotenv import load_dotenv
-from flight_booking_backend import FlightHotelBookingBackend
+from flight_booking_backend import FlightBookingBackend
+from hotel_booking_backend import HotelBookingBackend
 load_dotenv()
 
 os.environ['OPENAI_API_KEY'] = os.getenv("OPENAI_API_KEY")
@@ -23,9 +24,13 @@ os.environ["LANGCHAIN_TRACING_V2"] = "true"
 os.environ["LANGCHAIN_API_KEY"] = os.getenv("LANGCHAIN_API_KEY")
 
 mydb = None
-def database_init(host , user , password , database):
+def database_flight_init(host , user , password , database):
     global mydb
-    mydb = FlightHotelBookingBackend(host , user ,database ,password)
+    mydb = FlightBookingBackend(host , user ,database ,password)
+mydb2 = None
+def database_hotel_init(host , user , password , database):
+    global mydb2
+    mydb2 = HotelBookingBackend(host , user ,database ,password)
     
 
 def get_image_caption(img):
@@ -42,12 +47,14 @@ def get_image_caption(img):
 
 # Define Prompts
 @tool
-def hotel_search(text : str):
+def hotel_search(destination :str , date : str , text : Optional[str] = None):
     """ Search for available hotels based on user query.
         You are equiped with hotels data
 
     Args:
-        text (str): user query
+        destination (str) : In which city you would like to stay
+        date (str) : since when you would like to stay
+        text (str , optional ): user preference
     Returns:
         str : return response to user query
     """
@@ -57,7 +64,7 @@ def hotel_search(text : str):
     User preference: {text}
    
     Available HOTELS:
-    {mydb.get_flight_info()}
+    {mydb2.get_hotel_info( destination , date)}
 
     Please list only the relevant Hotel with their details."""
 
@@ -66,33 +73,38 @@ def hotel_search(text : str):
     return str(response)
 
 @tool
-def book_hotel(hotel_id:int, passenger_id: int, date : str , number_of_people : int , room_type :str , stay_time : int):
+def book_hotel(hotel_name: str, passenger_id: str, date : str , number_of_people : int , destination :str, number_of_room :int):
     """You are Hotel booking agent who is expert in hotel ticket booking task
     Args:
         hotel_id (int): _description_
-        passenger_id (int): _description_
+        passenger_id (str): _description_
         date (str): _description_
         number_of_people (int): _description_
         room_type (str): _description_
         stay_time (int): _description_
     """
-    return f"room booked in {hotel_id} on {date} for {number_of_people}"
+    response = mydb2.book_hotels( passenger_id, destination, hotel_name, date, number_of_room)
+    return f"room booked in {hotel_name} on {date} for {number_of_people} + \n\n\n{response}"
+# departure, passenger_id, destination, airport, airline, date, seats
 @tool 
-def book_flight( departure : str , destination : str , flight_id : int , passenger_id : int , seat : str ):
+def book_flight( departure : str , destination : str , flight_name : str , passenger_id : str ,airport : str,seat : str ):
     """ You are flight booking agent who is expert in flight ticket booking task
 
     Args:
         departure (str): Departure Airport 
         destination (str): Destination ( where you want to go)
-        flight_id (int): perticular flight_id you want to travel in
-        passenger_id (int): unique passenger_id to uniquely identify passenger
+        flight_name (str): perticular flight name you want to travel in
+        passenger_id (str): unique passenger_id to uniquely identify passenger
+        airport (str) : From which airport you would like to board plane
         seat (str): which seat you would like to book
 
     Returns:
         str : if all required parameter are provide then return a response regarding ticket information else ask for remaining parameters to book ticket
     """
     # functionality
-    return f"ticket booked for {flight_id} form {destination} to {departure}"
+    
+    response = mydb.book_flight(departure , destination ,flight_name , passenger_id , airport, seat)
+    return f"ticket booked for {flight_name} form {destination} to {departure} + {response}"
 @tool
 def search_flights(departure : str , destinatio : str , date: Optional[str] = None , text: Optional[str] = None ) -> str:
     """
@@ -151,7 +163,7 @@ def image_caption_tool(img_path: str) -> str:
         caption = processor.decode(output[0], skip_special_tokens=True)
         return caption
     except Exception as e:
-        return f"Error analyzing image: {str(e)}"
+        return f"Error analyzing image: {str(e)}"  
 
 @tool
 def adviser_tool(text : str , chat_history=None):
@@ -202,7 +214,8 @@ def adviser_tool(text : str , chat_history=None):
         return "I apologize, but I couldn't generate a proper response. Please try asking your question again."
                 
 def initialize_chain():
-    database_init("localhost" , "root" , "flight_management", "1213" )
+    database_flight_init("localhost" , "root" , "flight_management", "1213" )
+    database_flight_init("localhost" , "root" , "flight_management", "1213" )
     tools = [adviser_tool, search_flights, book_flight, hotel_search, book_hotel]
     rendered_tools = render_text_description(tools)
     
