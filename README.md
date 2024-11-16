@@ -21,12 +21,12 @@ This project is a multimodal travel assistant chatbot built with Streamlit, Lang
 
 ## Installation and Setup
 
-1. #Clone the repository:
+1. **Clone the repository:**
    ```bash
    git clone https://github.com/ShriNarayanPandey01/travel-assistant-chatbot.git
    cd travel-assistant-chatbot
    ```
-2.# Run Backend on different instance
+2.**Run Backend on different instance**
   In travel_agent.py when intializing database pass you information of your database 
   and make sure that your database instance is running 
   ```bash
