@@ -1,3 +1,29 @@
+####################################################
+
+"""
+    IGNORE THIS CODE
+    THIS CODE FILE IS JUST MIXTURE OF ALL THE OTHER FILES IN ONE FILE
+"""
+
+####################################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import ollama
 import streamlit as st
 from PIL import Image
