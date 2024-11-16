@@ -27,7 +27,7 @@ This project is a multimodal travel assistant chatbot built with Streamlit, Lang
    cd travel-assistant-chatbot
    ```
 2.**Run Backend on different instance**
-  in travel_agent.py when intializing database pass you information of your database 
+  -In travel_agent.py when intializing database pass you information of your database 
   and make sure that your database instance is running 
   ```bash
     python fast_api_backend.py
