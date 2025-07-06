@@ -1,0 +1,1 @@
+--upgrade langchain langchain-core langgraph dotenv -qU langchain-groq -U langchain-community faiss-cpu chromadb
