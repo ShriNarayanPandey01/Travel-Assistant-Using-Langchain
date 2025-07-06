@@ -1,0 +1,919 @@
+type: object
+properties:
+  airport:
+    type: object
+    properties:
+      pluginData:
+        type: object
+        properties:
+          details:
+            type: object
+            properties:
+              name:
+                type: string (example: Ahmedabad International Airport)
+              code:
+                type: object
+                properties:
+                  iata:
+                    type: string (example: AMD)
+                  icao:
+                    type: string (example: VAAH)
+              delayIndex:
+                type: object
+                properties:
+                  arrivals:
+                    type: number (example: 0.75)
+                  departures:
+                    type: number (example: 1.75)
+              stats:
+                type: object
+                properties:
+                  arrivals:
+                    type: object
+                    properties:
+                      delayIndex:
+                        type: number (example: 0.75)
+                      delayAvg:
+                        type: integer (example: 5)
+                      percentage:
+                        type: object
+                        properties:
+                          delayed:
+                            type: number (example: 0.13)
+                          canceled:
+                            type: number (example: 0.07)
+                          trend:
+                            type: string (example: down)
+                      recent:
+                        type: object
+                        properties:
+                          delayIndex:
+                            type: number (example: 0.75)
+                          delayAvg:
+                            type: integer (example: 5)
+                          percentage:
+                            type: object
+                            properties:
+                              delayed:
+                                type: number (example: 0.13)
+                              canceled:
+                                type: number (example: 0.07)
+                              trend:
+                                type: string (example: down)
+                          quantity:
+                            type: object
+                            properties:
+                              onTime:
+                                type: integer (example: 12)
+                              delayed:
+                                type: integer (example: 2)
+                              canceled:
+                                type: integer (example: 1)
+                      today:
+                        type: object
+                        properties:
+                          percentage:
+                            type: object
+                            properties:
+                              delayed:
+                                type: integer (example: 0)
+                              canceled:
+                                type: integer (example: 0)
+                          quantity:
+                            type: object
+                            properties:
+                              onTime:
+                                type: integer (example: 0)
+                              delayed:
+                                type: integer (example: 0)
+                              canceled:
+                                type: integer (example: 0)
+                      yesterday:
+                        type: object
+                        properties:
+                          percentage:
+                            type: object
+                            properties:
+                              delayed:
+                                type: number (example: 0.13)
+                              canceled:
+                                type: number (example: 0.01)
+                          quantity:
+                            type: object
+                            properties:
+                              onTime:
+                                type: integer (example: 117)
+                              delayed:
+                                type: integer (example: 17)
+                              canceled:
+                                type: integer (example: 2)
+                      tomorrow:
+                        type: object
+                        properties:
+                          percentage:
+                            type: object
+                            properties:
+                              canceled:
+                                type: integer (example: 0)
+                          quantity:
+                            type: object
+                            properties:
+                              canceled:
+                                type: integer (example: 0)
+                  departures:
+                    type: object
+                    properties:
+                      delayIndex:
+                        type: number (example: 1.75)
+                      delayAvg:
+                        type: integer (example: 21)
+                      percentage:
+                        type: object
+                        properties:
+                          delayed:
+                            type: number (example: 0.69)
+                          canceled:
+                            type: integer (example: 0)
+                          trend:
+                            type: string (example: down)
+                      recent:
+                        type: object
+                        properties:
+                          delayIndex:
+                            type: number (example: 1.75)
+                          delayAvg:
+                            type: integer (example: 21)
+                          percentage:
+                            type: object
+                            properties:
+                              delayed:
+                                type: number (example: 0.69)
+                              canceled:
+                                type: integer (example: 0)
+                              trend:
+                                type: string (example: down)
+                          quantity:
+                            type: object
+                            properties:
+                              onTime:
+                                type: integer (example: 4)
+                              delayed:
+                                type: integer (example: 9)
+                              canceled:
+                                type: integer (example: 0)
+                      today:
+                        type: object
+                        properties:
+                          percentage:
+                            type: object
+                            properties:
+                              delayed:
+                                type: integer (example: 0)
+                              canceled:
+                                type: integer (example: 0)
+                          quantity:
+                            type: object
+                            properties:
+                              onTime:
+                                type: integer (example: 0)
+                              delayed:
+                                type: integer (example: 0)
+                              canceled:
+                                type: integer (example: 0)
+                      yesterday:
+                        type: object
+                        properties:
+                          percentage:
+                            type: object
+                            properties:
+                              delayed:
+                                type: number (example: 0.44)
+                              canceled:
+                                type: integer (example: 0)
+                          quantity:
+                            type: object
+                            properties:
+                              onTime:
+                                type: integer (example: 72)
+                              delayed:
+                                type: integer (example: 57)
+                              canceled:
+                                type: integer (example: 0)
+                      tomorrow:
+                        type: object
+                        properties:
+                          percentage:
+                            type: object
+                            properties:
+                              canceled:
+                                type: integer (example: 0)
+                          quantity:
+                            type: object
+                            properties:
+                              canceled:
+                                type: integer (example: 0)
+              position:
+                type: object
+                properties:
+                  latitude:
+                    type: number (example: 23.07724)
+                  longitude:
+                    type: number (example: 72.634651)
+                  elevation:
+                    type: integer (example: 189)
+                  country:
+                    type: object
+                    properties:
+                      name:
+                        type: string (example: India)
+                      code:
+                        type: string (example: IN)
+                      id:
+                        type: integer (example: 102)
+                  region:
+                    type: object
+                    properties:
+                      city:
+                        type: string (example: Ahmedabad)
+              timezone:
+                type: object
+                properties:
+                  name:
+                    type: string (example: Asia/Kolkata)
+                  offset:
+                    type: integer (example: 19800)
+                  abbr:
+                    type: string (example: IST)
+                  abbrName:
+                    type: string (example: India Standard Time)
+                  isDst:
+                    type: integer (example: False)
+              url:
+                type: object
+                properties:
+                  homepage:
+                    type: null
+                  webcam:
+                    type: null
+                  wikipedia:
+                    type: string (example: https://en.wikipedia.org/wiki/Sardar_Vallabhbhai_P...)
+              airportImages:
+                type: object
+                properties:
+                  thumbnails:
+                    type: array (length: 1)
+                    items:
+                      type: object
+                      properties:
+                        src:
+                          type: string (example: https://cdn.jetphotos.com/200/1/90711_1216142960_t...)
+                        link:
+                          type: string (example: https://www.jetphotos.com/photo/6304260)
+                        copyright:
+                          type: string (example: Sunandan Subramaniam)
+                        source:
+                          type: string (example: Jetphotos.com)
+                  medium:
+                    type: array (length: 1)
+                    items:
+                      type: object
+                      properties:
+                        src:
+                          type: string (example: https://cdn.jetphotos.com/400/1/90711_1216142960.j...)
+                        link:
+                          type: string (example: https://www.jetphotos.com/photo/6304260)
+                        copyright:
+                          type: string (example: Sunandan Subramaniam)
+                        source:
+                          type: string (example: Jetphotos.com)
+                  large:
+                    type: array (length: 1)
+                    items:
+                      type: object
+                      properties:
+                        src:
+                          type: string (example: https://cdn.jetphotos.com/640cb/1/90711_1216142960...)
+                        link:
+                          type: string (example: https://www.jetphotos.com/photo/6304260)
+                        copyright:
+                          type: string (example: Sunandan Subramaniam)
+                        source:
+                          type: string (example: Jetphotos.com)
+              visible:
+                type: integer (example: True)
+          flightdiary:
+            type: object
+            properties:
+              url:
+                type: string (example: /data/airports/amd/reviews)
+              ratings:
+                type: object
+                properties:
+                  avg:
+                    type: number (example: 3.65)
+                  total:
+                    type: integer (example: 438)
+              comment:
+                type: array (length: 1)
+                items:
+                  type: object
+                  properties:
+                    content:
+                      type: string (example: The domestic terminal is pretty small and usually ...)
+                    author:
+                      type: object
+                      properties:
+                        facebookId:
+                          type: null
+                        name:
+                          type: string (example: AgamKashyap)
+                    timestamp:
+                      type: integer (example: 1729062093)
+              reviews:
+                type: integer (example: 14)
+              evaluation:
+                type: integer (example: 73)
+          schedule:
+            type: object
+            properties:
+              departures:
+                type: object
+                properties:
+                  item:
+                    type: object
+                    properties:
+                      current:
+                        type: integer (example: 100)
+                      total:
+                        type: integer (example: 211)
+                      limit:
+                        type: integer (example: 100)
+                  page:
+                    type: object
+                    properties:
+                      current:
+                        type: integer (example: 1)
+                      total:
+                        type: integer (example: 3)
+                  timestamp:
+                    type: integer (example: 1749235920)
+                  data:
+                    type: array (length: 100)
+                    items:
+                      type: object
+                      properties:
+                        flight:
+                          type: object
+                          properties:
+                            identification:
+                              type: object
+                              properties:
+                                id:
+                                  type: null
+                                row:
+                                  type: integer (example: 5668236547)
+                                number:
+                                  type: object
+                                  properties:
+                                    default:
+                                      type: string (example: TG344)
+                                    alternative:
+                                      type: null
+                                callsign:
+                                  type: null
+                                codeshare:
+                                  type: null
+                            status:
+                              type: object
+                              properties:
+                                live:
+                                  type: integer (example: False)
+                                text:
+                                  type: string (example: Scheduled)
+                                icon:
+                                  type: null
+                                estimated:
+                                  type: null
+                                ambiguous:
+                                  type: integer (example: False)
+                                generic:
+                                  type: object
+                                  properties:
+                                    status:
+                                      type: object
+                                      properties:
+                                        text:
+                                          type: string (example: scheduled)
+                                        type:
+                                          type: string (example: departure)
+                                        color:
+                                          type: string (example: gray)
+                                        diverted:
+                                          type: null
+                                    eventTime:
+                                      type: object
+                                      properties:
+                                        utc:
+                                          type: null
+                                        local:
+                                          type: null
+                            aircraft:
+                              type: object
+                              properties:
+                                model:
+                                  type: object
+                                  properties:
+                                    code:
+                                      type: string (example: 320)
+                                    text:
+                                      type: string (example: )
+                                hex:
+                                  type: string (example: )
+                                registration:
+                                  type: string (example: )
+                                serialNo:
+                                  type: string (example: )
+                                images:
+                                  type: null
+                            owner:
+                              type: null
+                            airline:
+                              type: object
+                              properties:
+                                name:
+                                  type: string (example: Thai Airways)
+                                code:
+                                  type: object
+                                  properties:
+                                    iata:
+                                      type: string (example: TG)
+                                    icao:
+                                      type: string (example: THA)
+                                short:
+                                  type: string (example: Thai Airways)
+                            airport:
+                              type: object
+                              properties:
+                                origin:
+                                  type: object
+                                  properties:
+                                    timezone:
+                                      type: object
+                                      properties:
+                                        name:
+                                          type: string (example: Asia/Kolkata)
+                                        offset:
+                                          type: integer (example: 19800)
+                                        abbr:
+                                          type: string (example: IST)
+                                        abbrName:
+                                          type: string (example: India Standard Time)
+                                        isDst:
+                                          type: integer (example: False)
+                                    info:
+                                      type: object
+                                      properties:
+                                        terminal:
+                                          type: string (example: 2)
+                                        baggage:
+                                          type: null
+                                        gate:
+                                          type: null
+                                destination:
+                                  type: object
+                                  properties:
+                                    code:
+                                      type: object
+                                      properties:
+                                        iata:
+                                          type: string (example: BKK)
+                                        icao:
+                                          type: string (example: VTBS)
+                                    timezone:
+                                      type: object
+                                      properties:
+                                        name:
+                                          type: string (example: Asia/Bangkok)
+                                        offset:
+                                          type: integer (example: 25200)
+                                        abbr:
+                                          type: string (example: +07)
+                                        abbrName:
+                                          type: null
+                                        isDst:
+                                          type: integer (example: False)
+                                    info:
+                                      type: object
+                                      properties:
+                                        terminal:
+                                          type: null
+                                        baggage:
+                                          type: null
+                                        gate:
+                                          type: null
+                                    name:
+                                      type: string (example: Bangkok Suvarnabhumi Airport)
+                                    position:
+                                      type: object
+                                      properties:
+                                        latitude:
+                                          type: number (example: 13.6811)
+                                        longitude:
+                                          type: number (example: 100.7472)
+                                        country:
+                                          type: object
+                                          properties:
+                                            name:
+                                              type: string (example: Thailand)
+                                            code:
+                                              type: string (example: TH)
+                                            id:
+                                              type: integer (example: 221)
+                                        region:
+                                          type: object
+                                          properties:
+                                            city:
+                                              type: string (example: Bangkok)
+                                    visible:
+                                      type: integer (example: True)
+                                real:
+                                  type: null
+                            time:
+                              type: object
+                              properties:
+                                scheduled:
+                                  type: object
+                                  properties:
+                                    departure:
+                                      type: integer (example: 1749238500)
+                                    arrival:
+                                      type: integer (example: 1749254400)
+                                real:
+                                  type: object
+                                  properties:
+                                    departure:
+                                      type: null
+                                    arrival:
+                                      type: null
+                                estimated:
+                                  type: object
+                                  properties:
+                                    departure:
+                                      type: null
+                                    arrival:
+                                      type: null
+                                other:
+                                  type: object
+                                  properties:
+                                    eta:
+                                      type: null
+                                    duration:
+                                      type: null
+          weather:
+            type: object
+            properties:
+              metar:
+                type: string (example: VAAH 061800Z 18009KT 4000 FU NSC 31/23 Q1006 NOSIG)
+              time:
+                type: integer (example: 1749232800)
+              qnh:
+                type: integer (example: 1006)
+              dewpoint:
+                type: object
+                properties:
+                  celsius:
+                    type: integer (example: 23)
+                  fahrenheit:
+                    type: integer (example: 73)
+              humidity:
+                type: integer (example: 62)
+              pressure:
+                type: object
+                properties:
+                  hg:
+                    type: integer (example: 30)
+                  hpa:
+                    type: integer (example: 1006)
+              sky:
+                type: object
+                properties:
+                  condition:
+                    type: object
+                    properties:
+                      text:
+                        type: string (example: Clear)
+                  visibility:
+                    type: object
+                    properties:
+                      km:
+                        type: integer (example: 4000000)
+                      mi:
+                        type: integer (example: 2)
+                      nmi:
+                        type: integer (example: 2)
+              flight:
+                type: object
+                properties:
+                  category:
+                    type: string (example: IFR)
+              wind:
+                type: object
+                properties:
+                  direction:
+                    type: object
+                    properties:
+                      degree:
+                        type: integer (example: 180)
+                      text:
+                        type: string (example: From south)
+                  speed:
+                    type: object
+                    properties:
+                      kmh:
+                        type: integer (example: 18)
+                      kts:
+                        type: integer (example: 10)
+                      mph:
+                        type: integer (example: 11)
+                      text:
+                        type: string (example: Mod)
+              temp:
+                type: object
+                properties:
+                  celsius:
+                    type: integer (example: 31)
+                  fahrenheit:
+                    type: integer (example: 88)
+              elevation:
+                type: object
+                properties:
+                  m:
+                    type: integer (example: 55)
+                  ft:
+                    type: integer (example: 180)
+              cached:
+                type: integer (example: 1749234834)
+          aircraftCount:
+            type: object
+            properties:
+              ground:
+                type: integer (example: 39)
+              onGround:
+                type: object
+                properties:
+                  visible:
+                    type: integer (example: 12)
+                  total:
+                    type: integer (example: 36)
+          runways:
+            type: array (length: 2)
+            items:
+              type: object
+              properties:
+                name:
+                  type: string (example: 05)
+                length:
+                  type: object
+                  properties:
+                    ft:
+                      type: integer (example: 11499)
+                    m:
+                      type: integer (example: 3505)
+                surface:
+                  type: object
+                  properties:
+                    code:
+                      type: string (example: ASPH)
+                    name:
+                      type: string (example: Asphalt)
+  airlines:
+    type: object
+    properties:
+      codeshare:
+        type: object
+        properties:
+          AA:
+            type: object
+            properties:
+              name:
+                type: string (example: American Airlines)
+              code:
+                type: object
+                properties:
+                  iata:
+                    type: string (example: AA)
+                  icao:
+                    type: string (example: AAL)
+          AF:
+            type: object
+            properties:
+              name:
+                type: string (example: Air France)
+              code:
+                type: object
+                properties:
+                  iata:
+                    type: string (example: AF)
+                  icao:
+                    type: string (example: AFR)
+          BA:
+            type: object
+            properties:
+              name:
+                type: string (example: British Airways)
+              code:
+                type: object
+                properties:
+                  iata:
+                    type: string (example: BA)
+                  icao:
+                    type: string (example: BAW)
+          ET:
+            type: object
+            properties:
+              name:
+                type: string (example: Ethiopian Airlines)
+              code:
+                type: object
+                properties:
+                  iata:
+                    type: string (example: ET)
+                  icao:
+                    type: string (example: ETH)
+          EY:
+            type: object
+            properties:
+              name:
+                type: string (example: Etihad Airways)
+              code:
+                type: object
+                properties:
+                  iata:
+                    type: string (example: EY)
+                  icao:
+                    type: string (example: ETD)
+          JL:
+            type: object
+            properties:
+              name:
+                type: string (example: Jet Linx Aviation)
+              code:
+                type: object
+                properties:
+                  iata:
+                    type: string (example: JL)
+                  icao:
+                    type: string (example: JTL)
+          KL:
+            type: object
+            properties:
+              name:
+                type: string (example: KLM)
+              code:
+                type: object
+                properties:
+                  iata:
+                    type: string (example: KL)
+                  icao:
+                    type: string (example: KLM)
+          LH:
+            type: object
+            properties:
+              name:
+                type: string (example: Lufthansa)
+              code:
+                type: object
+                properties:
+                  iata:
+                    type: string (example: LH)
+                  icao:
+                    type: string (example: DLH)
+          LX:
+            type: object
+            properties:
+              name:
+                type: string (example: Swiss)
+              code:
+                type: object
+                properties:
+                  iata:
+                    type: string (example: LX)
+                  icao:
+                    type: string (example: SWR)
+          MH:
+            type: object
+            properties:
+              name:
+                type: string (example: Malaysia Airlines)
+              code:
+                type: object
+                properties:
+                  iata:
+                    type: string (example: MH)
+                  icao:
+                    type: string (example: MAS)
+          MS:
+            type: object
+            properties:
+              name:
+                type: string (example: Egyptair)
+              code:
+                type: object
+                properties:
+                  iata:
+                    type: string (example: MS)
+                  icao:
+                    type: string (example: MSR)
+          NH:
+            type: object
+            properties:
+              name:
+                type: string (example: All Nippon Airways)
+              code:
+                type: object
+                properties:
+                  iata:
+                    type: string (example: NH)
+                  icao:
+                    type: string (example: ANA)
+          OZ:
+            type: object
+            properties:
+              name:
+                type: string (example: Asiana Airlines)
+              code:
+                type: object
+                properties:
+                  iata:
+                    type: string (example: OZ)
+                  icao:
+                    type: string (example: AAR)
+          QF:
+            type: object
+            properties:
+              name:
+                type: string (example: Qantas)
+              code:
+                type: object
+                properties:
+                  iata:
+                    type: string (example: QF)
+                  icao:
+                    type: string (example: QFA)
+          SQ:
+            type: object
+            properties:
+              name:
+                type: string (example: Singapore Airlines)
+              code:
+                type: object
+                properties:
+                  iata:
+                    type: string (example: SQ)
+                  icao:
+                    type: string (example: SIA)
+          TK:
+            type: object
+            properties:
+              name:
+                type: string (example: Turkish Airlines)
+              code:
+                type: object
+                properties:
+                  iata:
+                    type: string (example: TK)
+                  icao:
+                    type: string (example: THY)
+          UL:
+            type: object
+            properties:
+              name:
+                type: string (example: SriLankan Airlines)
+              code:
+                type: object
+                properties:
+                  iata:
+                    type: string (example: UL)
+                  icao:
+                    type: string (example: ALK)
+          VS:
+            type: object
+            properties:
+              name:
+                type: string (example: Virgin Atlantic)
+              code:
+                type: object
+                properties:
+                  iata:
+                    type: string (example: VS)
+                  icao:
+                    type: string (example: VIR)
+  aircraftImages:
+    type: array (length: 54)
+    items:
+      type: object
+      properties:
+        registration:
+          type: string (example: VT-IPM)
+        images:
+          type: null
