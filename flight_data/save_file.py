@@ -3,7 +3,7 @@ import json
 from datetime import datetime
 
 # Make the API request
-response = requests.get("https://api.flightapi.io/schedule/6842bac92261813d9e69f442?mode=departures&iata=TIR&day=1")
+response = requests.get("apiurl")
 
 try:
     # Get the JSON data
